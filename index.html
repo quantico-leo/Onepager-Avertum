@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avertum Group | Operativ Partner</title>
+    <title>Avertum Group | Likviditet & Återkrav</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Spectral:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -34,25 +34,21 @@
             box-shadow: 0 0 40px rgba(0,0,0,0.5);
             border-radius: 4px;
         }
-        /* Guldlinje toppen */
         .top-line {
             position: absolute; top: 0; left: 0; right: 0; height: 3px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
-
-        /* Logo */
         .logo-svg { width: 60px; height: 60px; margin-bottom: 15px; }
         .logo-title { font-family: 'Spectral', serif; font-size: 28px; font-weight: 700; color: #fff; letter-spacing: 1px; }
         .logo-sub { font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; font-weight: 600; margin-bottom: 30px; }
 
-        /* Huvudtext */
         h1 {
             font-family: 'Spectral', serif;
-            font-size: 30px;
+            font-size: 28px;
             font-weight: 400;
             color: #fff;
             margin: 0 0 15px 0;
-            line-height: 1.2;
+            line-height: 1.3;
         }
         h1 span { color: var(--gold); font-style: italic; }
         
@@ -63,11 +59,7 @@
             margin: 0 auto 40px auto;
         }
 
-        /* Tjänster */
-        .service-list {
-            text-align: left;
-            margin-bottom: 40px;
-        }
+        .service-list { text-align: left; margin-bottom: 40px; }
         .service-item {
             border-left: 2px solid var(--gold);
             padding-left: 20px;
@@ -86,7 +78,6 @@
             line-height: 1.5;
         }
 
-        /* Knapp & Kontakt */
         .cta-btn {
             display: inline-block;
             background: var(--gold);
@@ -107,9 +98,12 @@
             padding-top: 20px;
             font-size: 12px;
             color: var(--muted);
+            line-height: 1.8;
         }
         .footer strong { color: #fff; display: block; margin-bottom: 5px; font-size: 14px; }
-        .footer a { color: var(--gold); text-decoration: none; }
+        .footer a { color: var(--gold); text-decoration: none; transition: 0.3s; margin: 0 5px; }
+        .footer a:hover { color: #fff; }
+        .separator { color: #555; }
     </style>
 </head>
 <body>
@@ -124,34 +118,36 @@
         <div class="logo-title">AVERTUM</div>
         <div class="logo-sub">GROUP AB</div>
 
-        <h1>Sweinvest blir <span>Avertum.</span></h1>
+        <h1>Har du kapital låst i <br><span>onoterade aktier?</span></h1>
+        
         <p class="lead">
-            Vi expanderar från ren rådgivning till att bli en <strong>operativ partner</strong>. 
-            Vi grundades för att fylla tomrummet där juridiken slutar och verkligheten tar vid.
+            Sweinvest har blivit <strong>Avertum</strong>. Vi har breddat mandatet för att inte bara ge råd, utan för att driva återkrav och lösa låsta positioner där andra går bet.
         </p>
 
         <div class="service-list">
             <div class="service-item">
-                <h3>Låsta Tillgångar</h3>
-                <p>Kapital låst i onoterade aktier eller tvister? Vi driver processen och frigör likviditeten.</p>
+                <h3>Realisering av Förlustavdrag</h3>
+                <p>Sitter du på aktier som blivit värdelösa? Vi hjälper dig att realisera förlusten juridiskt korrekt så att du kan kvitta den mot skatten.</p>
             </div>
             <div class="service-item">
-                <h3>Ryktesskydd</h3>
-                <p>Vi neutraliserar digitalt förtal och skyddar ditt namn proaktivt och tekniskt.</p>
+                <h3>Återkrav & Påtryckning</h3>
+                <p>Har du blivit vilseledd att investera? Vi agerar som din fullmaktshavare och sätter hårt mot hårt mot bolag och styrelser för att återfå kapital.</p>
             </div>
             <div class="service-item">
-                <h3>Operativ Kraft</h3>
-                <p>Vi agerar som din fullmaktshavare och tar "stöket" så att du får arbetsro.</p>
+                <h3>Likviditet ur Låsta Lägen</h3>
+                <p>Vi skapar utvägar ur onoterade innehav och "omöjliga" situationer genom operativ handling och nätverk.</p>
             </div>
         </div>
 
-        <a href="mailto:leo@avertum.se" class="cta-btn">Boka en bedömning</a>
+        <a href="mailto:info@avertum.se" class="cta-btn">Kostnadsfri bedömning</a>
 
         <div class="footer">
             <strong>Leo Celija</strong>
             Grundare & VD<br>
-            0700-193 462<br>
-            <a href="https://avertum.se">www.avertum.se</a>
+            <a href="mailto:info@avertum.se">info@avertum.se</a><br>
+            <a href="https://wa.me/46700193462">WhatsApp: +46 700 193 462</a><br>
+            <br>
+            <a href="https://avertum.se">www.avertum.se</a> <span class="separator">|</span> <a href="https://www.linkedin.com/in/leocelija">LinkedIn</a>
         </div>
     </div>
 
