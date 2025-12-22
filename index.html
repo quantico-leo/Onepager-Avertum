@@ -8,11 +8,11 @@
     <style>
         :root {
             --bg: #050505;
-            --card-bg: #0A0F16;
+            --section-alt: #0A0A0A;
             --gold: #D4AF37;
             --text: #E2E8F0;
-            --red-alert: #ef4444;
             --muted: #94A3B8;
+            --red-alert: #ef4444;
         }
         body {
             background-color: var(--bg);
@@ -20,97 +20,206 @@
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         .container {
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px;
         }
         
-        /* Header / Logo Area */
-        .header { text-align: center; margin-bottom: 50px; }
-        .logo-text { font-family: 'Spectral', serif; font-size: 24px; font-weight: 700; letter-spacing: 2px; color: #fff; }
+        /* Typography */
+        h1, h2, h3 { font-family: 'Spectral', serif; color: #fff; margin-top: 0; }
+        h1 { font-size: 42px; line-height: 1.1; margin-bottom: 20px; }
+        h1 span { color: var(--gold); font-style: italic; }
+        h2 { font-size: 28px; margin-bottom: 20px; }
+        p { color: var(--muted); margin-bottom: 20px; font-size: 15px; }
+        
+        /* Layout Sections */
+        .section { padding: 60px 0; }
+        .section-alt { background-color: var(--section-alt); }
+        
+        /* Header */
+        .header { text-align: center; padding-top: 40px; margin-bottom: 40px; }
+        .logo-text { font-family: 'Spectral', serif; font-size: 22px; font-weight: 700; letter-spacing: 2px; color: #fff; }
         .logo-sub { font-size: 10px; color: var(--gold); text-transform: uppercase; letter-spacing: 3px; }
 
-        /* Hero Section */
+        /* Hero */
         .hero { text-align: center; margin-bottom: 40px; }
-        .badge { 
-            background: rgba(212, 175, 55, 0.1); color: var(--gold); 
-            padding: 5px 12px; border-radius: 50px; font-size: 11px; 
-            text-transform: uppercase; font-weight: 600; letter-spacing: 1px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+        .hero-badge { 
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.1); 
+            color: var(--gold); 
+            padding: 6px 14px; 
+            border-radius: 4px; 
+            font-size: 11px; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
-        h1 {
-            font-family: 'Spectral', serif; font-size: 38px; line-height: 1.1; margin: 20px 0; color: #fff;
-        }
-        h1 span { color: var(--gold); font-style: italic; }
-        .sub-headline { font-size: 16px; color: var(--muted); margin-bottom: 30px; }
 
-        /* The "Pain" Box */
-        .alert-box {
-            background: rgba(239, 68, 68, 0.1);
-            border-left: 3px solid var(--red-alert);
-            padding: 20px;
+        /* The Problem (Pain) */
+        .problem-box {
+            padding: 30px;
+            background: rgba(239, 68, 68, 0.05); /* Subtle red tint */
+            border-radius: 8px;
             margin-bottom: 40px;
-            text-align: left;
-            border-radius: 4px;
         }
-        .alert-title { color: var(--red-alert); font-weight: 700; font-size: 14px; text-transform: uppercase; margin-bottom: 5px; display: block; }
-        .alert-text { font-size: 14px; color: #ffcccc; margin: 0; }
+        .problem-title { color: var(--red-alert); font-weight: 700; font-size: 13px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .problem-text { color: #fff; font-size: 16px; margin: 0; }
 
-        /* What's Inside */
-        .features { margin-bottom: 40px; }
-        .feature-item {
-            display: flex; align-items: flex-start; margin-bottom: 20px;
-            background: var(--card-bg); padding: 20px; border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.05);
+        /* Inventory List (What's inside) */
+        .inventory-list { list-style: none; padding: 0; margin: 0; }
+        .inventory-item { 
+            display: flex; 
+            margin-bottom: 25px; 
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        .check { color: var(--gold); font-size: 20px; margin-right: 15px; margin-top: -2px; }
-        .feat-content h3 { margin: 0 0 5px 0; font-size: 16px; color: #fff; }
-        .feat-content p { margin: 0; font-size: 13px; color: var(--muted); }
+        .inventory-item:last-child { border-bottom: none; }
+        .item-icon { color: var(--gold); font-size: 24px; margin-right: 20px; min-width: 30px; }
+        .item-content h3 { font-size: 18px; margin-bottom: 5px; }
+        .item-content p { font-size: 14px; margin: 0; }
 
-        /* Buy Button */
-        .btn-container { text-align: center; margin: 40px 0; }
+        /* Pricing & Button */
+        .price-area { text-align: center; background: #080808; padding: 40px; border-radius: 12px; border: 1px solid #1a1a1a; }
+        .price-tag { font-size: 36px; color: #fff; font-family: 'Spectral', serif; font-weight: 700; margin-bottom: 5px; }
+        .price-sub { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px; }
+        
         .buy-btn {
-            background: linear-gradient(180deg, #D4AF37 0%, #B59326 100%);
-            color: #000; font-weight: 800; text-decoration: none;
+            background: var(--gold);
+            color: #000; font-weight: 700; text-decoration: none;
             padding: 20px 40px; border-radius: 4px; font-size: 16px;
             text-transform: uppercase; letter-spacing: 1px;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-            display: inline-block; transition: 0.2s;
-            width: 100%; box-sizing: border-box;
+            display: block; width: 100%; box-sizing: border-box;
+            transition: 0.2s;
         }
-        .buy-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 25px rgba(212, 175, 55, 0.4); }
-        .guarantee { font-size: 11px; color: var(--muted); margin-top: 10px; display: block; }
+        .buy-btn:hover { background: #fff; }
+        
+        /* FAQ */
+        .faq-item { margin-bottom: 20px; }
+        .faq-q { color: #fff; font-weight: 600; margin-bottom: 5px; display: block; }
+        .faq-a { font-size: 14px; color: var(--muted); }
 
         /* Footer */
         .footer { 
-            text-align: center; border-top: 1px solid rgba(255,255,255,0.1); 
-            padding-top: 30px; font-size: 12px; color: #555; 
+            text-align: center; padding: 60px 0 40px; font-size: 12px; color: #444; 
         }
+        .footer a { color: #666; text-decoration: none; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
         <div class="header">
             <div class="logo-text">AVERTUM</div>
             <div class="logo-sub">INTELLIGENCE UNIT</div>
         </div>
 
         <div class="hero">
-            <span class="badge">Digital Protocol • Instant Download</span>
+            <span class="hero-badge">Confidential Protocol</span>
             <h1>The Business <br><span>Survival Kit</span></h1>
-            <p class="sub-headline">
-                The unofficial field manual for protecting your private assets when the company ship is sinking.
+            <p style="font-size: 18px; color: #fff;">
+                The unofficial field manual for founders who need to protect private assets when the company ship starts sinking.
             </p>
         </div>
+    </div>
 
-        <div class="alert-box">
-            <span class="alert-title">Warning: The System is Rigged</span>
-            <p class="alert-text">
-                When bankruptcy hits, the liquidator works for the creditors—not you. Without a strategy, you risk losing your house, your savings, and your reputation. 
+    <div class="section section-alt">
+        <div class="container">
+            <div class="problem-box">
+                <span class="problem-title">The Brutal Truth</span>
+                <p class="problem-text">
+                    When bankruptcy hits, the liquidator works for the creditors—not for you. If you don't have a firewall strategy in place <strong>before</strong> the crash, you risk losing your house, your savings, and your reputation.
+                </p>
+            </div>
+            <p>
+                Most consultants charge $3,000+ to walk you through this process. I’ve packaged the exact same strategy into a digital toolkit you can execute tonight.
             </p>
         </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2 style="text-align: center;">Inside The Kit</h2>
+            <ul class="inventory-list">
+                <li class="inventory-item">
+                    <span class="item-icon">01</span>
+                    <div class="item-content">
+                        <h3>The Firewall Strategy</h3>
+                        <p>A step-by-step guide to legally separating your private wealth from corporate liabilities before it's too late.</p>
+                    </div>
+                </li>
+                <li class="inventory-item">
+                    <span class="item-icon">02</span>
+                    <div class="item-content">
+                        <h3>The 48-Hour Triage Protocol</h3>
+                        <p>Exactly which bills to pay (and which NOT to pay) to avoid personal payment liability (Sw: Personligt betalningsansvar).</p>
+                    </div>
+                </li>
+                <li class="inventory-item">
+                    <span class="item-icon">03</span>
+                    <div class="item-content">
+                        <h3>The "Scam Detector" Checklist</h3>
+                        <p>How to instantly spot predatory "investors" and fake saviors who prey on distressed companies.</p>
+                    </div>
+                </li>
+                <li class="inventory-item">
+                    <span class="item-icon">04</span>
+                    <div class="item-content">
+                        <h3>Communication Scripts</h3>
+                        <p>Copy-paste templates for what to say to angry creditors, banks, and employees to buy yourself time.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section section-alt">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 24px;">Common Questions</h2>
+            
+            <div class="faq-item">
+                <span class="faq-q">Is this legal?</span>
+                <span class="faq-a">Yes. This is about using existing laws to protect yourself, not hiding assets illegally. We teach you how to prioritize correctly according to the Companies Act (Aktiebolagslagen).</span>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-q">Can I use this without a lawyer?</span>
+                <span class="faq-a">The kit is designed for founders to use immediately. It covers the operational "triage" that lawyers often charge hourly rates to explain.</span>
+            </div>
+
+            <div class="faq-item">
+                <span class="faq-q">How do I get access?</span>
+                <span class="faq-a">It is a digital download. You will receive a secure PDF link immediately after purchase.</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <div class="price-area">
+                <div class="price-tag">$299 USD</div>
+                <div class="price-sub">One-time payment • Instant Access</div>
+                
+                <a href="#" class="buy-btn">Download Securely</a>
+                
+                <p style="margin-top: 20px; font-size: 13px;">
+                    Secure transaction via CopeCart. <br>100% Confidential.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            Avertum Group AB<br>
+            Gothenburg, Sweden<br>
+            <br>
+            <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        </div>
+    </div>
+
+</body>
+</html>
