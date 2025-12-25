@@ -7,11 +7,11 @@
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
 
     /* Scoped CSS för att inte krocka med resten av sidan */
-    .av-b2c-container {
+    .av-generic-container {
         background-color: #030a10; /* Mörkblå/Svart bakgrund */
         background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        background-size: 50px 50px; /* Rutnätseffekt */
+        background-size: 50px 50px; /* Rutnätseffekt från hemsidan */
         color: #e0e0e0;
         font-family: 'Montserrat', sans-serif;
         padding: 80px 20px;
@@ -19,9 +19,19 @@
         box-sizing: border-box;
     }
 
-    .av-b2c-inner {
+    .av-generic-inner {
         max-width: 1100px;
         margin: 0 auto;
+    }
+
+    /* Logo */
+    .av-logo-center {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .av-logo-img {
+        width: 100px; /* Justera storlek vid behov */
+        height: auto;
     }
 
     /* Rubriker */
@@ -34,6 +44,7 @@
         margin-bottom: 10px;
         display: block;
         font-weight: 700;
+        text-align: center;
     }
 
     .av-headline {
@@ -41,22 +52,24 @@
         font-size: 3rem;
         color: #ffffff;
         margin-top: 0;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         line-height: 1.1;
+        text-align: center;
     }
 
     .av-headline span {
-        color: #C5A059;
+        color: #C5A059; /* */
         font-style: italic;
     }
 
     .av-intro-text {
         font-size: 1.1rem;
-        max-width: 700px;
-        margin-bottom: 60px;
+        max-width: 800px;
+        margin: 0 auto 60px auto;
         color: #cccccc;
-        border-left: 3px solid #C5A059;
-        padding-left: 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        padding-bottom: 30px;
     }
 
     /* Tjänster Grid */
@@ -99,7 +112,6 @@
         text-align: center;
         margin-top: 50px;
         padding-top: 40px;
-        border-top: 1px solid rgba(255,255,255,0.1);
     }
 
     .av-btn {
@@ -124,9 +136,12 @@
 
     /* Kontakt Footer */
     .av-footer-contact {
-        margin-top: 40px;
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255,255,255,0.1);
         font-size: 0.9rem;
         color: #888;
+        text-align: center;
     }
     
     .av-footer-contact p {
@@ -147,9 +162,7 @@
     }
     
     .av-social-links {
-        margin-top: 15px;
-        padding-top: 15px;
-        border-top: 1px solid rgba(255,255,255,0.05);
+        margin-top: 20px;
         display: inline-block;
     }
 
@@ -161,40 +174,44 @@
 </head>
 <body>
 
-<section class="av-b2c-container">
-    <div class="av-b2c-inner">
+<section class="av-generic-container">
+    <div class="av-generic-inner">
         
-        <span class="av-title-gold">Strategisk Kapitalhantering B2C</span>
-        <h2 class="av-headline">Har ditt kapital <span>fastnat?</span></h2>
+        <div class="av-logo-center">
+            <img src="https://i.imgur.com/8ZYZ4Qe.png" alt="Avertum Logo" class="av-logo-img"> 
+        </div>
+
+        <span class="av-title-gold">Strategisk Kapitalhantering & Riskminimering</span>
+        <h2 class="av-headline">Har ert kapital <span>fastnat?</span></h2>
         
         <div class="av-intro-text">
-            <p>Vi hjälper privata investerare att återta kontrollen över låsta tillgångar. Från skatteoptimering av onoterade förluster till kvalificerad due diligence och kapitalåtervinning.</p>
+            <p>Oavsett om det gäller en privat portfölj eller ett företags balansräkning är illikvida tillgångar en belastning. Avertum Group hjälper företag och privatpersoner att återfå kontrollen, skydda värden och hantera situationer av tvist, bedrägeri eller obestånd. Vi erbjuder operativ handläggning från analys till avslut.</p>
         </div>
 
         <div class="av-services-grid">
             <div class="av-card">
-                <h3>01. Skatteoptimering</h3>
-                <p>En förlust är bara en förlust om den inte används. Vi hjälper dig att realisera förluster i onoterade aktier ("schmucks i onoterat") för att kvitta mot vinster i din K4-blankett.</p>
+                <h3>01. Strategisk Realisering & Skatt</h3>
+                <p>Låst kapital behöver inte vara dött kapital. Vi strukturerar innehav för att formellt realisera förluster, vilket möjliggör skatteeffektivisering via K4 (för privatpersoner) eller nedskrivningar i bolaget.</p>
             </div>
 
             <div class="av-card">
-                <h3>02. Portföljanalys & DD</h3>
-                <p>Scanning av befintliga innehav. Är det värt att sitta kvar? Vi gör en djupdykning i bolagets status, styrelse och historik för att ge dig en objektiv "Second Opinion".</p>
+                <h3>02. Due Diligence & Analys</h3>
+                <p>Djupgående granskning av befintliga onoterade innehav. Vi kontrollerar styrelse, historik och finansiell status för att ge er ett objektivt beslutsunderlag för styrelserummet eller köksbordet.</p>
             </div>
 
             <div class="av-card">
-                <h3>03. Kapitalåtervinning</h3>
-                <p>Vi samarbetar med specialiserade jurister för att driva processer där diplomatin misslyckats. Operativ handläggning från analys till potentiell återbäring.</p>
+                <h3>03. Kapitalåtervinning & Tvist</h3>
+                <p>När diplomatin misslyckats kopplar vi ert ärende till specialiserade jurister inom obestånd och bedrägerier. Vi agerar strategisk partner genom hela processen.</p>
             </div>
 
             <div class="av-card">
                 <h3>04. Preemptiva Strategier</h3>
-                <p>Säkra framtiden. Vi sätter upp ramverk och checklistor för att du ska undvika blåsningar och "förhoppningsbolag" i framtiden.</p>
+                <p>Riskminimering för framtiden. Vi upprättar ramverk och checklistor för att skydda ert kapital och rykte vid kommande investeringar.</p>
             </div>
         </div>
 
         <div class="av-btn-container">
-            <a href="mailto:info@avertum.se" class="av-btn">Inled Kostnadsfri Bedömning</a>
+            <a href="mailto:info@avertum.se" class="av-btn">Inled Konfidentiell Bedömning</a>
             
             <div class="av-footer-contact">
                 <p>
@@ -206,7 +223,6 @@
                 </p>
                 
                 <div class="av-social-links">
-                    Connecta med oss:<br>
                     <a href="https://www.linkedin.com/company/avertum-group-ab" target="_blank">LinkedIn (Företag)</a> | 
                     <a href="https://www.linkedin.com/in/leocelija" target="_blank">LinkedIn (Leo Celija)</a>
                 </div>
