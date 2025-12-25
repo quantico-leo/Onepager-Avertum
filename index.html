@@ -1,123 +1,220 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="sv">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Avertum | Scam Detector Protocol - 30-minute audit</title>
-  <meta name="description" content="Stop scams before you pay. 30-minute expert review of any offer, DM, website, or contract. Get a clear YES/NO and next steps.">
-  <style>
-    :root { --bg:#0b0d12; --fg:#f6f7fb; --muted:#a9afbd; --card:#121520; }
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-    .container{max-width:960px;margin:0 auto;padding:24px}
-    header{padding-top:8px}
-    .badge{display:inline-block;padding:6px 10px;border:1px solid #2b3040;border-radius:9999px;font-size:13px;color:#cbd2e1}
-    .hero{padding:48px 0}
-    h1{font-size:34px;line-height:1.15;margin:0 0 12px}
-    p.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
-    .card{background:var(--card);border:1px solid #1d2230;border-radius:16px;padding:20px;margin:12px 0;box-shadow:0 10px 30px rgba(0,0,0,.2)}
-    .btn{display:inline-block;background:#ffffff;color:#000;padding:14px 20px;border-radius:12px;font-weight:600;text-decoration:none}
-    .btn:focus{outline:2px solid #fff;outline-offset:2px}
-    .grid{display:grid;gap:16px}
-    .grid-2{grid-template-columns:1fr}
-    @media(min-width:800px){.grid-2{grid-template-columns:1.2fr .8fr}}
-    .small{font-size:13px;color:var(--muted)}
-    ul.clean{list-style:disc;margin:10px 0 0 20px;padding:0}
-    hr{border:0;border-top:1px solid #1d2230;margin:28px 0}
-    footer{padding:28px 0}
-    a{color:#fff}
-    nav a{color:#cbd2e1;text-decoration:none;margin-right:12px}
-    nav a:hover{text-decoration:underline}
-    .legal{background:#0e111a;border-top:1px solid #1d2230;margin-top:40px;padding:24px;border-radius:12px}
-    .section-title{font-weight:700;margin:8px 0 6px}
-  </style>
+<meta charset="UTF-8">
+<style>
+    /* Importera typsnitt som liknar hemsidan */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+    /* Scoped CSS för att inte krocka med resten av sidan */
+    .av-b2c-container {
+        background-color: #030a10; /* Mörkblå/Svart bakgrund */
+        background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px; /* Rutnätseffekt */
+        color: #e0e0e0;
+        font-family: 'Montserrat', sans-serif;
+        padding: 80px 20px;
+        line-height: 1.6;
+        box-sizing: border-box;
+    }
+
+    .av-b2c-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Rubriker */
+    .av-title-gold {
+        color: #C5A059; /* Avertum Guld */
+        font-family: 'Playfair Display', serif;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+        font-weight: 700;
+    }
+
+    .av-headline {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        color: #ffffff;
+        margin-top: 0;
+        margin-bottom: 20px;
+        line-height: 1.1;
+    }
+
+    .av-headline span {
+        color: #C5A059;
+        font-style: italic;
+    }
+
+    .av-intro-text {
+        font-size: 1.1rem;
+        max-width: 700px;
+        margin-bottom: 60px;
+        color: #cccccc;
+        border-left: 3px solid #C5A059;
+        padding-left: 20px;
+    }
+
+    /* Tjänster Grid */
+    .av-services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+
+    .av-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(197, 160, 89, 0.2);
+        padding: 30px;
+        transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .av-card:hover {
+        transform: translateY(-5px);
+        border-color: #C5A059;
+    }
+
+    .av-card h3 {
+        color: #ffffff;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        margin-top: 0;
+        border-bottom: 1px solid #C5A059;
+        padding-bottom: 10px;
+        display: inline-block;
+    }
+
+    .av-card p {
+        font-size: 0.95rem;
+        color: #b0b0b0;
+    }
+
+    /* CTA Knapp */
+    .av-btn-container {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 40px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .av-btn {
+        background-color: transparent;
+        color: #C5A059;
+        border: 2px solid #C5A059;
+        padding: 15px 40px;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+
+    .av-btn:hover {
+        background-color: #C5A059;
+        color: #000;
+    }
+
+    /* Kontakt Footer */
+    .av-footer-contact {
+        margin-top: 40px;
+        font-size: 0.9rem;
+        color: #888;
+    }
+    
+    .av-footer-contact p {
+        margin-bottom: 20px;
+    }
+
+    .av-footer-contact a {
+        color: #e0e0e0;
+        text-decoration: none;
+        margin: 0 2px;
+        border-bottom: 1px dotted #555;
+        transition: color 0.2s;
+    }
+    
+    .av-footer-contact a:hover {
+        color: #C5A059;
+        border-bottom: 1px solid #C5A059;
+    }
+    
+    .av-social-links {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+        .av-headline { font-size: 2rem; }
+        .av-services-grid { grid-template-columns: 1fr; }
+    }
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="badge">Avertum - Scam Detector Protocol</div>
-    </header>
 
-    <section class="hero grid grid-2">
-      <div>
-        <h1>30-minute "Scam Detector" - get a clear YES/NO before you pay</h1>
-        <p class="lead">Send the offer, DM, website, or contract. An expert reviews red flags and tells you exactly what is safe and what is not.</p>
-        <p><a id="cta" class="btn" href="https://copecart.com/us/products/5694bd38/checkout">Book 30-min audit</a></p>
-        <div class="small">Price: USD 299 · 100% human review · Same-day delivery</div>
-        <div class="small" style="margin-top:8px;">Your card will be charged by CopeCart (Merchant of Record).</div>
-      </div>
-      <div class="card">
-        <div class="section-title">What you get</div>
-        <ul class="clean">
-          <li>30-minute live call with an expert</li>
-          <li>Red-flag checklist and optional recorded walkthrough</li>
-          <li>Concrete next steps, no fluff</li>
-          <li>If we are unsure, we will say so</li>
-        </ul>
-        <hr>
-        <div class="section-title">Best for</div>
-        <ul class="clean">
-          <li>Investments, offers, coaches</li>
-          <li>Hidden fees, suspicious DMs, crypto or NFT</li>
-          <li>Jobs, assignments, suppliers</li>
-        </ul>
-      </div>
-    </section>
+<section class="av-b2c-container">
+    <div class="av-b2c-inner">
+        
+        <span class="av-title-gold">Strategisk Kapitalhantering B2C</span>
+        <h2 class="av-headline">Har ditt kapital <span>fastnat?</span></h2>
+        
+        <div class="av-intro-text">
+            <p>Vi hjälper privata investerare att återta kontrollen över låsta tillgångar. Från skatteoptimering av onoterade förluster till kvalificerad due diligence och kapitalåtervinning.</p>
+        </div>
 
-    <section class="card">
-      <div class="section-title">How it works</div>
-      <ul class="clean">
-        <li>1) Book - 2) Send material - 3) 30-minute call - 4) Get notes and decision</li>
-      </ul>
-      <div class="small">No legal or financial advice. No guaranteed outcomes.</div>
-    </section>
+        <div class="av-services-grid">
+            <div class="av-card">
+                <h3>01. Skatteoptimering</h3>
+                <p>En förlust är bara en förlust om den inte används. Vi hjälper dig att realisera förluster i onoterade aktier ("schmucks i onoterat") för att kvitta mot vinster i din K4-blankett.</p>
+            </div>
 
-    <footer class="small">
-      <nav>
-        <a href="#terms">Terms</a>
-        <a href="#privacy">Privacy</a>
-        <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>
-      </nav>
-      <div style="margin-top:8px;">© Avertum. All rights reserved.</div>
-    </footer>
+            <div class="av-card">
+                <h3>02. Portföljanalys & DD</h3>
+                <p>Scanning av befintliga innehav. Är det värt att sitta kvar? Vi gör en djupdykning i bolagets status, styrelse och historik för att ge dig en objektiv "Second Opinion".</p>
+            </div>
 
-    <!-- Legal sections embedded on the same page so links do not 404 -->
-    <section id="terms" class="legal card">
-      <h2>Terms of Service</h2>
-      <p><b>Service:</b> Scam Detector Protocol - 30-minute audit. Expert review of an offer, DM, website, or contract. You receive a live call and short written notes.</p>
-      <p><b>Price:</b> USD 299 unless otherwise stated.</p>
-      <p><b>Delivery time:</b> Same-day in most cases (business hours), otherwise next business day.</p>
-      <p><b>No legal or financial advice:</b> We provide informational analysis only. You remain responsible for your decisions.</p>
-      <p><b>Refunds:</b> 14-day right of withdrawal. If the call has already been delivered, refunds may be limited or denied at our discretion.</p>
-      <p><b>Rescheduling:</b> You may reschedule once with at least 12 hours notice.</p>
-      <p><b>Contact:</b> support@yourdomain.com</p>
-      <p><b>Merchant of Record:</b> Your card will be charged by CopeCart.</p>
-      <p>Last updated: today.</p>
-    </section>
+            <div class="av-card">
+                <h3>03. Kapitalåtervinning</h3>
+                <p>Vi samarbetar med specialiserade jurister för att driva processer där diplomatin misslyckats. Operativ handläggning från analys till potentiell återbäring.</p>
+            </div>
 
-    <section id="privacy" class="legal card">
-      <h2>Privacy Policy</h2>
-      <p>We collect only what we need to deliver the audit: name, email, payment confirmation, and the materials you submit for review.</p>
-      <p>Payments are processed by CopeCart as Merchant of Record. We do not store card data.</p>
-      <p>We keep your materials confidential and delete them on request unless we must retain them for legal reasons.</p>
-      <p>You can request access or deletion by emailing: support@yourdomain.com</p>
-      <p>Last updated: today.</p>
-    </section>
-  </div>
+            <div class="av-card">
+                <h3>04. Preemptiva Strategier</h3>
+                <p>Säkra framtiden. Vi sätter upp ramverk och checklistor för att du ska undvika blåsningar och "förhoppningsbolag" i framtiden.</p>
+            </div>
+        </div>
 
-  <script>
-    (function(){
-      // If the page is opened with ?affiliate=&coupon=&utm_* params,
-      // pass them through to checkout automatically.
-      var CHECKOUT_URL = "https://copecart.com/us/products/5694bd38/checkout";
-      var params = window.location.search.replace(/^\?/, "");
-      if (params) {
-        var glue = CHECKOUT_URL.indexOf("?") > -1 ? "&" : "?";
-        document.getElementById("cta").href = CHECKOUT_URL + glue + params;
-      } else {
-        document.getElementById("cta").href = CHECKOUT_URL;
-      }
-    })();
-  </script>
+        <div class="av-btn-container">
+            <a href="mailto:info@avertum.se" class="av-btn">Inled Kostnadsfri Bedömning</a>
+            
+            <div class="av-footer-contact">
+                <p>
+                    <strong>AVERTUM GROUP AB</strong><br>
+                    Gullbergs Strandgata 36D, 411 04 Göteborg<br><br>
+                    Webb: <a href="https://www.avertum.se">www.avertum.se</a><br>
+                    E-post: <a href="mailto:info@avertum.se">info@avertum.se</a><br>
+                    Tel/WhatsApp: <a href="https://wa.me/46700193462">+46 700 193 462</a>
+                </p>
+                
+                <div class="av-social-links">
+                    Connecta med oss:<br>
+                    <a href="https://www.linkedin.com/company/avertum-group-ab" target="_blank">LinkedIn (Företag)</a> | 
+                    <a href="https://www.linkedin.com/in/leocelija" target="_blank">LinkedIn (Leo Celija)</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 </body>
 </html>
