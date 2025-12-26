@@ -2,9 +2,16 @@
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Avertum Group - Strategisk Kapitalhantering</title>
 <style>
     /* Importera typsnitt som liknar hemsidan */
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #030a10;
+    }
 
     /* Scoped CSS för att inte krocka med resten av sidan */
     .av-generic-container {
@@ -17,6 +24,7 @@
         padding: 80px 20px;
         line-height: 1.6;
         box-sizing: border-box;
+        min-height: 100vh; /* Säkerställer att bakgrunden täcker hela skärmen */
     }
 
     .av-generic-inner {
@@ -24,15 +32,34 @@
         margin: 0 auto;
     }
 
-    /* Logo */
+    /* --- PREMIUM LOGO STYLING (Emblem-stil för JPG) --- */
     .av-logo-center {
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 50px;
+        margin-top: 20px;
     }
+    
     .av-logo-img {
-        width: 120px; /* Ökat storleken lite eftersom kvaliteten är bättre */
-        height: auto;
-        border-radius: 50%; /* Gör loggan rund som ett mynt/emblem */
+        width: 150px; /* Bra storlek för högupplöst bild */
+        height: 150px; /* Samma höjd som bredd för perfekt cirkel */
+        object-fit: cover; /* Säkerställer att bilden fyller cirkeln snyggt */
+        
+        border-radius: 50%; /* Gör bilden helt rund */
+        border: 2px solid rgba(197, 160, 89, 0.6); /* En tunn guldkant */
+        
+        /* "Sexy Premium Glow" - Guldsken runt cirkeln */
+        box-shadow: 0 0 25px rgba(197, 160, 89, 0.5),
+                    0 0 50px rgba(197, 160, 89, 0.2);
+        
+        transition: all 0.5s ease;
+    }
+
+    /* Effekt när man pekar på loggan */
+    .av-logo-img:hover {
+        transform: scale(1.05); /* Växer mjukt */
+        border-color: rgba(197, 160, 89, 1); /* Kanten blir skarpare guld */
+        box-shadow: 0 0 35px rgba(197, 160, 89, 0.7),
+                    0 0 70px rgba(197, 160, 89, 0.3); /* Glöder mer intensivt */
     }
 
     /* Rubriker */
@@ -40,9 +67,9 @@
         color: #C5A059; /* Avertum Guld */
         font-family: 'Playfair Display', serif;
         font-size: 14px;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
         text-transform: uppercase;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         display: block;
         font-weight: 700;
         text-align: center;
@@ -50,7 +77,7 @@
 
     .av-headline {
         font-family: 'Playfair Display', serif;
-        font-size: 3rem;
+        font-size: 3.5rem;
         color: #ffffff;
         margin-top: 0;
         margin-bottom: 30px;
@@ -59,117 +86,133 @@
     }
 
     .av-headline span {
-        color: #C5A059; /* */
+        color: #C5A059; 
         font-style: italic;
     }
 
     .av-intro-text {
         font-size: 1.1rem;
         max-width: 800px;
-        margin: 0 auto 60px auto;
+        margin: 0 auto 70px auto;
         color: #cccccc;
         text-align: center;
-        border-bottom: 1px solid rgba(197, 160, 89, 0.3);
-        padding-bottom: 30px;
+        line-height: 1.8;
     }
 
     /* Tjänster Grid */
     .av-services-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin-bottom: 60px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        margin-bottom: 80px;
     }
 
     .av-card {
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(197, 160, 89, 0.2);
-        padding: 30px;
-        transition: transform 0.3s ease, border-color 0.3s ease;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(197, 160, 89, 0.15);
+        padding: 35px 30px;
+        transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
     }
 
     .av-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-7px);
         border-color: #C5A059;
+        background: rgba(197, 160, 89, 0.05);
     }
 
     .av-card h3 {
         color: #ffffff;
         font-family: 'Playfair Display', serif;
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         margin-top: 0;
-        border-bottom: 1px solid #C5A059;
-        padding-bottom: 10px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid rgba(197, 160, 89, 0.5);
         display: inline-block;
     }
 
     .av-card p {
-        font-size: 0.95rem;
+        font-size: 1rem;
         color: #b0b0b0;
+        line-height: 1.7;
     }
 
     /* CTA Knapp */
     .av-btn-container {
         text-align: center;
-        margin-top: 50px;
-        padding-top: 40px;
+        margin-top: 60px;
+        padding-top: 50px;
+        border-top: 1px solid rgba(197, 160, 89, 0.2);
     }
 
     .av-btn {
         background-color: transparent;
         color: #C5A059;
         border: 2px solid #C5A059;
-        padding: 15px 40px;
+        padding: 18px 50px;
         font-family: 'Montserrat', sans-serif;
         font-weight: 600;
+        font-size: 1rem;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
         cursor: pointer;
         text-decoration: none;
         transition: all 0.3s ease;
         display: inline-block;
+        position: relative;
+        overflow: hidden;
     }
 
     .av-btn:hover {
         background-color: #C5A059;
-        color: #000;
+        color: #030a10;
+        box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
     }
 
     /* Kontakt Footer */
     .av-footer-contact {
-        margin-top: 50px;
-        padding-top: 30px;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        font-size: 0.9rem;
-        color: #888;
+        margin-top: 60px;
+        font-size: 0.95rem;
+        color: #999;
         text-align: center;
+        line-height: 2;
     }
     
-    .av-footer-contact p {
-        margin-bottom: 20px;
+    .av-footer-contact strong {
+        color: #fff;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
     }
 
     .av-footer-contact a {
-        color: #e0e0e0;
+        color: #C5A059;
         text-decoration: none;
-        margin: 0 2px;
-        border-bottom: 1px dotted #555;
         transition: color 0.2s;
+        border-bottom: 1px dotted transparent;
     }
     
     .av-footer-contact a:hover {
-        color: #C5A059;
+        color: #ffffff;
         border-bottom: 1px solid #C5A059;
     }
     
     .av-social-links {
-        margin-top: 20px;
+        margin-top: 30px;
         display: inline-block;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .av-social-links a {
+        margin: 0 10px;
+        font-weight: 600;
     }
 
     @media (max-width: 768px) {
-        .av-headline { font-size: 2rem; }
-        .av-services-grid { grid-template-columns: 1fr; }
+        .av-headline { font-size: 2.5rem; }
+        .av-services-grid { grid-template-columns: 1fr; gap: 30px; }
+        .av-generic-container { padding: 60px 20px; }
+        .av-btn { width: 100%; box-sizing: border-box; }
     }
 </style>
 </head>
@@ -179,7 +222,7 @@
     <div class="av-generic-inner">
         
         <div class="av-logo-center">
-            <img src="Logo.jpg" alt="Avertum Logo" class="av-logo-img"> 
+            <img src="Logo.png" alt="Avertum Logo" class="av-logo-img"> 
         </div>
 
         <span class="av-title-gold">Strategisk Kapitalhantering & Riskminimering</span>
@@ -218,7 +261,7 @@
                 <p>
                     <strong>AVERTUM GROUP AB</strong><br>
                     Gullbergs Strandgata 36D, 411 04 Göteborg<br><br>
-                    Webb: <a href="https://www.avertum.se">www.avertum.se</a><br>
+                    Webb: <a href="https://www.avertum.se" target="_blank">www.avertum.se</a><br>
                     E-post: <a href="mailto:info@avertum.se">info@avertum.se</a><br>
                     Tel/WhatsApp: <a href="https://wa.me/46700193462">+46 700 193 462</a>
                 </p>
