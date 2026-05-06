@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avertum Group - Kundsammanfattning</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #030a10;
+      color: #e0e0e0;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.7;
+    }
+
+    .av-doc-container {
+      background-color: #030a10;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+      padding: 70px 20px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    .av-doc-inner {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .av-logo-center {
+      text-align: center;
+      margin-bottom: 35px;
+      margin-top: 10px;
+    }
+
+    .av-logo-img {
+      width: 118px;
+      height: 118px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(197, 160, 89, 0.6);
+      box-shadow: 0 0 25px rgba(197, 160, 89, 0.5), 0 0 50px rgba(197, 160, 89, 0.2);
+    }
+
+    .av-title-gold {
+      color: #C5A059;
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .av-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 20px;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .av-headline span {
+      color: #C5A059;
+      font-style: italic;
+    }
+
+    .av-intro-text {
+      font-size: 1.05rem;
+      max-width: 800px;
+      margin: 0 auto 50px auto;
+      color: #cccccc;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .av-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .av-meta-card,
+    .av-section,
+    .av-score-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(197, 160, 89, 0.15);
+    }
+
+    .av-meta-card {
+      padding: 20px;
+    }
+
+    .av-meta-label {
+      color: #C5A059;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .av-meta-value {
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .av-layout {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .av-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .av-section {
+      padding: 32px 28px;
+    }
+
+    .av-section h2 {
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-top: 0;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(197, 160, 89, 0.45);
+      display: inline-block;
+    }
+
+    .av-section p,
+    .av-section li {
+      color: #bcbcbc;
+      font-size: 1rem;
+    }
+
+    .av-section ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .av-section li + li {
+      margin-top: 10px;
+    }
+
+    .av-score-wrap {
+      display: grid;
+      gap: 18px;
+    }
+
+    .av-score-card {
+      padding: 22px;
+    }
+
+    .av-score-label {
+      color: #C5A059;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .av-score-value {
+      font-size: 1.55rem;
+      color: #ffffff;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .av-footer-note {
+      margin-top: 40px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(197, 160, 89, 0.2);
+      text-align: center;
+      font-size: 0.92rem;
+      color: #999;
+      line-height: 1.9;
+    }
+
+    .av-footer-note strong {
+      color: #fff;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 860px) {
+      .av-meta-grid,
+      .av-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .av-headline {
+        font-size: 2.3rem;
+      }
+
+      .av-doc-container {
+        padding: 50px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="av-doc-container">
+    <div class="av-doc-inner">
+
+      <div class="av-logo-center">
+        <img src="Logo.png" alt="Avertum Logo" class="av-logo-img">
+      </div>
+
+      <span class="av-title-gold">Konfidentiell kundsammanfattning</span>
+      <h1 class="av-headline">Ekonomisk <span>Reality Check</span></h1>
+
+      <div class="av-intro-text">
+        <p>
+          Detta dokument sammanfattar nuläge, riskbild, huvudsakliga svagheter och prioriterad handlingsordning
+          efter genomförd genomgång av kundens onoterade innehav, skuldsida och ekonomiska handlingsutrymme.
+        </p>
+      </div>
+
+      <div class="av-meta-grid">
+        <div class="av-meta-card">
+          <div class="av-meta-label">Kund</div>
+          <div class="av-meta-value">[Namn Efternamn]</div>
+        </div>
+        <div class="av-meta-card">
+          <div class="av-meta-label">Datum</div>
+          <div class="av-meta-value">[YYYY-MM-DD]</div>
+        </div>
+        <div class="av-meta-card">
+          <div class="av-meta-label">Ansvarig</div>
+          <div class="av-meta-value">Leo Celija</div>
+        </div>
+      </div>
+
+      <div class="av-layout">
+        <div class="av-stack">
+          <div class="av-section">
+            <h2>1. Nuläge i klartext</h2>
+            <p>
+              [Beskriv kundens situation i 4–6 meningar. Exempel: Kunden har ett större onoterat innehav med begränsad likviditet,
+              bolån på hög nivå i relation till buffert, och saknar i nuläget en tydlig handlingsordning för hur risk ska prioriteras.]
+            </p>
+          </div>
+
+          <div class="av-section">
+            <h2>2. Huvudsakliga risker</h2>
+            <ul>
+              <li>[Risk 1 – exempelvis hög koncentration mot ett enskilt onoterat case]</li>
+              <li>[Risk 2 – exempelvis låg faktisk likviditet jämfört med upplevd förmögenhet]</li>
+              <li>[Risk 3 – exempelvis räntekänslighet, svag buffert eller höga fasta kostnader]</li>
+              <li>[Risk 4 – exempelvis avsaknad av tydlig exitstrategi eller beslutsdisciplin]</li>
+            </ul>
+          </div>
+
+          <div class="av-section">
+            <h2>3. Möjliga handlingsvägar</h2>
+            <ul>
+              <li>[Alternativ A – avvakta, men skapa tydliga beslutspunkter och bevakning]</li>
+              <li>[Alternativ B – inleda strukturerad dialog med bank, bolag eller annan part]</li>
+              <li>[Alternativ C – frigöra buffert, minska press på skuldsidan eller omfördela risk]</li>
+              <li>[Alternativ D – förbereda exit, nedskrivet mentalt värde eller annan realistisk väg framåt]</li>
+            </ul>
+          </div>
+
+          <div class="av-section">
+            <h2>4. Prioriterad ordning – nästa steg</h2>
+            <ul>
+              <li>[Steg 1 – vad kunden bör göra inom 7 dagar]</li>
+              <li>[Steg 2 – vad kunden bör göra inom 30 dagar]</li>
+              <li>[Steg 3 – vad kunden bör bevaka eller ompröva inom 60–90 dagar]</li>
+            </ul>
+          </div>
+
+          <div class="av-section">
+            <h2>5. Kommentar från Leo</h2>
+            <p>
+              [Kort personlig slutsats på 4–6 meningar. Ton: rak, trygg, tydlig. Fokus på vad som faktiskt spelar roll,
+              vad kunden inte bör lägga energi på och vad som nu är det rationella nästa steget.]
+            </p>
+          </div>
+        </div>
+
+        <aside class="av-score-wrap">
+          <div class="av-score-card">
+            <div class="av-score-label">Likviditetsrisk</div>
+            <div class="av-score-value">[Hög / Medel / Låg]</div>
+          </div>
+
+          <div class="av-score-card">
+            <div class="av-score-label">Skuldsensitivitet</div>
+            <div class="av-score-value">[Hög / Medel / Låg]</div>
+          </div>
+
+          <div class="av-score-card">
+            <div class="av-score-label">Övergripande pressnivå</div>
+            <div class="av-score-value">[Hög / Medel / Låg]</div>
+          </div>
+
+          <div class="av-score-card">
+            <div class="av-score-label">Skatteperspektiv</div>
+            <div class="av-score-value">[Relevant / Ej centralt / Bör utredas]</div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="av-footer-note">
+        <strong>AVERTUM GROUP AB</strong><br>
+        Detta dokument är ett oberoende beslutsunderlag och en strukturerad sammanfattning av genomförd genomgång.
+        Det utgör inte individuell investeringsrådgivning, kreditförmedling eller garanti om visst utfall.<br>
+        Webb: www.avertum.se · E-post: info@avertum.se · Tel/WhatsApp: +46 700 193 462
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>
