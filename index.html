@@ -3,298 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Avertum Group - Ekonomisk Reality Check</title>
+  <title>Avertum Group - Protection Check</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
 
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #030a10;
-    }
+    body { margin: 0; padding: 0; background-color: #030a10; font-family: 'Montserrat', sans-serif; color: #e0e0e0; }
+    
+    /* Språkväxlare - Fixed & Stylad */
+    .lang-switcher { text-align: center; padding: 15px 0; background: rgba(0,0,0,0.4); border-bottom: 1px solid #333; }
+    .lang-btn { background: none; border: 1px solid #C5A059; color: #C5A059; padding: 6px 18px; cursor: pointer; margin: 0 5px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+    .lang-btn.active { background: #C5A059; color: #030a10; }
 
-    .av-generic-container {
-      background-color: #030a10;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 50px 50px;
-      color: #e0e0e0;
-      font-family: 'Montserrat', sans-serif;
-      padding: 80px 20px;
-      line-height: 1.6;
-      box-sizing: border-box;
-      min-height: 100vh;
-    }
+    .content-block { display: none; }
+    .content-block.active { display: block; }
 
-    .av-generic-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .av-logo-center {
-      text-align: center;
-      margin-bottom: 50px;
-      margin-top: 20px;
-    }
-
-    .av-logo-img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid rgba(197, 160, 89, 0.6);
-      box-shadow: 0 0 25px rgba(197, 160, 89, 0.5), 0 0 50px rgba(197, 160, 89, 0.2);
-      transition: all 0.5s ease;
-    }
-
-    .av-logo-img:hover {
-      transform: scale(1.05);
-      border-color: rgba(197, 160, 89, 1);
-      box-shadow: 0 0 35px rgba(197, 160, 89, 0.7), 0 0 70px rgba(197, 160, 89, 0.3);
-    }
-
-    .av-title-gold {
-      color: #C5A059;
-      font-family: 'Playfair Display', serif;
-      font-size: 14px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 15px;
-      display: block;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .av-headline {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      color: #ffffff;
-      margin-top: 0;
-      margin-bottom: 30px;
-      line-height: 1.1;
-      text-align: center;
-    }
-
-    .av-headline span {
-      color: #C5A059;
-      font-style: italic;
-    }
-
-    .av-intro-text {
-      font-size: 1.1rem;
-      max-width: 860px;
-      margin: 0 auto 70px auto;
-      color: #cccccc;
-      text-align: center;
-      line-height: 1.8;
-    }
-
-    .av-services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      margin-bottom: 80px;
-    }
-
-    .av-card {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(197, 160, 89, 0.15);
-      padding: 35px 30px;
-      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-    }
-
-    .av-card:hover {
-      transform: translateY(-7px);
-      border-color: #C5A059;
-      background: rgba(197, 160, 89, 0.05);
-    }
-
-    .av-card h3 {
-      color: #ffffff;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      margin-top: 0;
-      margin-bottom: 15px;
-      padding-bottom: 15px;
-      border-bottom: 2px solid rgba(197, 160, 89, 0.5);
-      display: inline-block;
-    }
-
-    .av-card p {
-      font-size: 1rem;
-      color: #b0b0b0;
-      line-height: 1.7;
-    }
-
-    .av-btn-container {
-      text-align: center;
-      margin-top: 60px;
-      padding-top: 50px;
-      border-top: 1px solid rgba(197, 160, 89, 0.2);
-    }
-
-    .av-btn {
-      background-color: transparent;
-      color: #C5A059;
-      border: 2px solid #C5A059;
-      padding: 18px 50px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 600;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-block;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .av-btn:hover {
-      background-color: #C5A059;
-      color: #030a10;
-      box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
-    }
-
-    .av-footer-contact {
-      margin-top: 60px;
-      font-size: 0.95rem;
-      color: #999;
-      text-align: center;
-      line-height: 2;
-    }
-
-    .av-footer-contact strong {
-      color: #fff;
-      font-size: 1.1rem;
-      letter-spacing: 1px;
-    }
-
-    .av-footer-contact a {
-      color: #C5A059;
-      text-decoration: none;
-      transition: color 0.2s;
-      border-bottom: 1px dotted transparent;
-    }
-
-    .av-footer-contact a:hover {
-      color: #ffffff;
-      border-bottom: 1px solid #C5A059;
-    }
-
-    .av-social-links {
-      margin-top: 30px;
-      display: inline-block;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .av-social-links a {
-      margin: 0 10px;
-      font-weight: 600;
-    }
-
-    @media (max-width: 768px) {
-      .av-headline {
-        font-size: 2.5rem;
-      }
-
-      .av-services-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .av-generic-container {
-        padding: 60px 20px;
-      }
-
-      .av-btn {
-        width: 100%;
-        box-sizing: border-box;
-      }
-    }
+    .av-generic-container { background-color: #030a10; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 50px 50px; padding: 60px 20px; min-height: 100vh; }
+    .av-generic-inner { max-width: 1100px; margin: 0 auto; }
+    
+    .av-logo-center { text-align: center; margin-bottom: 40px; }
+    .av-logo-img { width: 140px; height: 140px; border-radius: 50%; border: 2px solid rgba(197,160,89,0.6); box-shadow: 0 0 20px rgba(197,160,89,0.4); transition: transform 0.3s ease; }
+    .av-logo-img:hover { transform: scale(1.05); border-color: rgba(197,160,89,1); }
+    
+    .av-title-gold { color: #C5A059; font-family: 'Playfair Display', serif; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px; display: block; font-weight: 700; text-align: center; }
+    .av-headline { font-family: 'Playfair Display', serif; font-size: 3rem; color: #ffffff; margin-top: 0; margin-bottom: 30px; text-align: center; }
+    .av-headline span { color: #C5A059; font-style: italic; }
+    
+    .av-intro-text { font-size: 1.1rem; max-width: 860px; margin: 0 auto 50px auto; color: #cccccc; text-align: center; }
+    .av-services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; margin-bottom: 60px; }
+    .av-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(197,160,89,0.15); padding: 30px; }
+    .av-card h3 { color: #ffffff; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-top: 0; border-bottom: 2px solid rgba(197,160,89,0.5); display: inline-block; }
+    
+    .av-btn { background-color: transparent; color: #C5A059; border: 2px solid #C5A059; padding: 15px 40px; font-weight: 600; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: 0.3s; }
+    .av-btn:hover { background-color: #C5A059; color: #030a10; }
+    
+    .av-footer { margin-top: 60px; text-align: center; color: #999; font-size: 0.9rem; line-height: 2; }
+    .av-footer a { color: #C5A059; text-decoration: none; }
   </style>
 </head>
 <body>
-  <section class="av-generic-container">
+
+  <div class="lang-switcher">
+    <button class="lang-btn active" onclick="switchLang('sv', event)">Svenska</button>
+    <button class="lang-btn" onclick="switchLang('en', event)">English</button>
+  </div>
+
+  <!-- SVENSKA -->
+  <section id="sv" class="av-generic-container content-block active">
     <div class="av-generic-inner">
-
       <div class="av-logo-center">
-        <a href="https://www.avertum.se" target="_blank" title="Gå till Avertum.se">
-          <img src="Logo.png" alt="Avertum Logo" class="av-logo-img">
+        <a href="https://www.avertum.se" target="_blank" rel="noopener noreferrer">
+            <img src="Logo.png" alt="Avertum Logo" class="av-logo-img">
         </a>
       </div>
-
-      <span class="av-title-gold">Strategisk Kapitalhantering &amp; Riskminimering</span>
-
-      <h2 class="av-headline">Har din ekonomi <span>fastnat?</span></h2>
-
-      <div class="av-intro-text">
-        <p>
-          Oavsett om det gäller onoterade innehav, bolån eller andra skulder kan en oklar riskbild bli en belastning.
-          Avertum Group hjälper privatpersoner att återfå kontrollen, förstå sin faktiska exponering och identifiera nästa rätt steg
-          genom en konfidentiell och oberoende genomgång.
-        </p>
-      </div>
-
+      <span class="av-title-gold">Oberoende skydd & Riskminimering</span>
+      <h1 class="av-headline">Har du tappat <span>kontrollen över riskbilden?</span></h1>
+      <div class="av-intro-text"><p>Avertum Private Protection Check är för dig som vill förstå din faktiska exponering vid misstänkt bedrägeri eller investeringsrisker. Konfidentiellt, oberoende, fast pris.</p></div>
       <div class="av-services-grid">
-        <div class="av-card">
-          <h3>01. Onoterat &amp; Likviditet</h3>
-          <p>
-            Vi går igenom dina onoterade innehav, hur låsta de faktiskt är, vilka realistiska exit-vägar som finns
-            och hur stor del av din upplevda förmögenhet som i praktiken är illikvid.
-          </p>
-        </div>
-
-        <div class="av-card">
-          <h3>02. Skuldsida &amp; Räntetryck</h3>
-          <p>
-            Bolån, kreditkort och andra åtaganden påverkar ditt handlingsutrymme.
-            Vi kartlägger pressnivå, räntekänslighet och hur skuldsidan påverkar besluten på tillgångssidan.
-          </p>
-        </div>
-
-        <div class="av-card">
-          <h3>03. Skatteperspektiv</h3>
-          <p>
-            När det är relevant identifierar vi om en realiserad förlust kan ha ett deklarationsmässigt värde att ta vidare.
-            Ingen viss skatteeffekt utlovas, men frågan lyfts tydligt om den är viktig i helheten.
-          </p>
-        </div>
-
-        <div class="av-card">
-          <h3>04. Handlingsplan</h3>
-          <p>
-            Du får en rak genomgång och en kort skriftlig sammanfattning med nuläge, huvudsakliga risker,
-            möjliga handlingsvägar och vad du bör ta tag i först. Fast pris, ingen produktförsäljning och ingen no cure/no pay.
-          </p>
-        </div>
+        <div class="av-card"><h3>01. Bedrägeri & Recovery</h3><p>Vi granskar vad som hänt och identifierar om du riskerar att bli lurad igen av "återvinningsfirmor".</p></div>
+        <div class="av-card"><h3>02. Innehav & Exponering</h3><p>Granskning av illikvida innehav. Vad är riskerna och vilka exit-vägar finns på riktigt?</p></div>
+        <div class="av-card"><h3>03. Digital Sårbarhet</h3><p>Vi säkrar din digitala identitet – e-post, 2FA och konton där bedragare ofta får fäste.</p></div>
+        <div class="av-card"><h3>04. Personlig Handlingsplan</h3><p>En rak genomgång. Inga dolda avgifter. Ingen produktförsäljning.</p></div>
       </div>
-
-      <div class="av-btn-container">
-        <a href="mailto:info@avertum.se?subject=Bokning%20%E2%80%93%20Ekonomisk%20Reality%20Check" class="av-btn">
-          Boka Ekonomisk Reality Check
-        </a>
-
-        <div class="av-footer-contact">
-          <p>
-            <strong>AVERTUM GROUP AB</strong><br><br>
-            Gullbergs Strandgata 36D, 411 04 Göteborg<br><br><br>
-            Webb: <a href="https://www.avertum.se" target="_blank">www.avertum.se</a><br><br>
-            E-post: <a href="mailto:info@avertum.se">info@avertum.se</a><br><br>
-            Tel/WhatsApp: <a href="https://wa.me/46700193462">+46 700 193 462</a><br>
-          </p>
-
-          <div class="av-social-links">
-            <a href="https://www.linkedin.com/company/avertum-group-ab" target="_blank">LinkedIn (Företag)</a> |
-            <a href="https://www.linkedin.com/in/leocelija" target="_blank">LinkedIn (Leo Celija)</a>
-          </div>
-        </div>
-      </div>
-
+      <div style="text-align:center;"><a href="mailto:info@avertum.se?subject=Bokning%20–%20Ekonomisk%20Reality%20Check" class="av-btn">Boka genomgång</a></div>
     </div>
   </section>
+
+  <!-- ENGLISH -->
+  <section id="en" class="av-generic-container content-block">
+    <div class="av-generic-inner">
+      <div class="av-logo-center">
+        <a href="https://www.avertum.se" target="_blank" rel="noopener noreferrer">
+            <img src="Logo.png" alt="Avertum Logo" class="av-logo-img">
+        </a>
+      </div>
+      <span class="av-title-gold">Independent Protection & Risk Mitigation</span>
+      <h1 class="av-headline">Have you lost <span>control of your risk exposure?</span></h1>
+      <div class="av-intro-text"><p>Avertum Private Protection Check is for those seeking clarity amidst suspected fraud or investment risks. Confidential, independent, fixed fee.</p></div>
+      <div class="av-services-grid">
+        <div class="av-card"><h3>01. Fraud & Recovery</h3><p>We audit what transpired and identify if you are being targeted by secondary "recovery scams".</p></div>
+        <div class="av-card"><h3>02. Assets & Exposure</h3><p>Review of illiquid holdings. We assess the actual risk and identify viable exit paths.</p></div>
+        <div class="av-card"><h3>03. Digital Vulnerability</h3><p>We secure your digital identity—email, 2FA, and the accounts bad actors frequently target.</p></div>
+        <div class="av-card"><h3>04. Personal Action Plan</h3><p>A direct briefing. No hidden fees. No product sales. Just pure strategy.</p></div>
+      </div>
+      <div style="text-align:center;"><a href="mailto:info@avertum.se?subject=Booking%20–%20Private%20Protection%20Check" class="av-btn">Book a review</a></div>
+    </div>
+  </section>
+
+  <script>
+    function switchLang(lang, event) {
+      document.querySelectorAll('.content-block').forEach(el => el.classList.remove('active'));
+      document.getElementById(lang).classList.add('active');
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
 </html>
